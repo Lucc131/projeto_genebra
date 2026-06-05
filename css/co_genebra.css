@@ -40,6 +40,233 @@
 }
 
 /* ==========================================================================
+   MODO ESCURO (DARK MODE) & TRANSIÇÕES SUAVES
+   ========================================================================== */
+
+[data-theme="dark"] {
+    /* Cores de Teste (Slate / Charcoal) */
+    --black: #F0F5F9;        /* Texto principal claro */
+    --white: #000000;        /* Fundo escuro principal (Charcoal) */
+    --bg-dark-rgb: 240, 245, 249;
+    --bg-light: #52616B;     /* Fundo de apoio (Slate) */
+    --text-muted: #C9D6DF;   /* Texto secundário cinza-azulado */
+    --border-light: rgba(201, 214, 223, 0.12);
+    
+    /* Resgate das cores da Paleta Original no Modo Escuro (Mantidas) */
+    --primary: #0184fb;      /* Azul principal */
+    --secondary: #00bafc;    /* Ciano secundário */
+    --accent: #43fbfb;       /* Ciano claro brilhante (Celeste) */
+    --green: #00fb08;        /* Verde limão (status ativo) */
+    
+    --grad-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --grad-accent: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+    --grad-bg: linear-gradient(180deg, #52616bb3 0%, #1e2022 100%);
+    --grad-placeholder: linear-gradient(135deg, #52616B 0%, #1E2022 100%);
+    
+    /* Efeitos de sombra adaptados para o fundo escuro com brilho azul sutil */
+    --shadow-sm: 0 4px 12px #00000066;
+    --shadow-md: 0 8px 32px #0184fb0d;
+    --shadow-lg: 0 16px 48px #0000008c;
+}
+
+/* Transição suave de cores ao alternar o tema */
+body, 
+.main-header, 
+.main-header.scrolled,
+.logo h1,
+.btn-secondary,
+.badge-welcome,
+.glass-widget,
+.glass-card,
+.stat-card,
+.schedule-item,
+.pilar-icon,
+.pilar-highlight-icon,
+.pix-copy-box,
+.value-btn,
+.input-custom-value input,
+.doacoes-calculator,
+.modal-content,
+.modal-option-card,
+.main-footer,
+.theme-toggle,
+.logo-dot,
+h1, h2, h3, h4, h5, h6, p, a, span, li, button, svg {
+    transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                backdrop-filter 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ajustes finos de elementos no modo escuro */
+[data-theme="dark"] .hero-bg-container {
+    background-color: #1E2022;
+    background-image: 
+        linear-gradient(180deg, #1e2022bf 0%, #1E2022 100%), 
+        url('../imgs/maxresdefault.jpg');
+    /* Mantém as cores originais da imagem de fundo no modo escuro */
+}
+
+[data-theme="dark"] .hero-bg-overlay {
+    background: linear-gradient(180deg, rgba(30, 32, 34, 0) 50%, #1E2022 100%);
+}
+
+[data-theme="dark"] .pulse-green {
+    background-color: var(--green);
+    box-shadow: 0 0 0 0 rgba(0, 251, 8, 0.6);
+    animation: pulse 1.8s infinite;
+}
+
+[data-theme="dark"] .main-header.scrolled {
+    background-color: rgba(30, 32, 34, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .glass-card, 
+[data-theme="dark"] .glass-widget {
+    background: rgba(82, 97, 107, 0.22); /* Fundo glass com a cor #52616B translúcida */
+    border: 1px solid rgba(240, 245, 249, 0.08);
+}
+
+[data-theme="dark"] .glass-card:hover, 
+[data-theme="dark"] .glass-widget:hover {
+    background: rgba(82, 97, 107, 0.35);
+    border-color: rgba(1, 132, 251, 0.35); /* Brilho sutil azul no hover */
+    box-shadow: 0 16px 40px rgba(1, 132, 251, 0.12);
+}
+
+[data-theme="dark"] .schedule-item {
+    background-color: rgba(240, 245, 249, 0.03);
+}
+
+[data-theme="dark"] .schedule-item:hover {
+    background-color: rgba(240, 245, 249, 0.08);
+}
+
+[data-theme="dark"] .stat-card {
+    background-color: rgba(240, 245, 249, 0.02);
+    border: 1px solid rgba(240, 245, 249, 0.04);
+}
+
+[data-theme="dark"] .pilar-icon {
+    background-color: rgba(240, 245, 249, 0.03);
+}
+
+[data-theme="dark"] .pilar-highlight-icon {
+    background-color: rgba(240, 245, 249, 0.03);
+}
+
+[data-theme="dark"] .badge-welcome {
+    border-color: rgba(1, 132, 251, 0.3);
+    background-color: rgba(30, 32, 34, 0.8);
+    color: #F0F5F9;
+}
+
+[data-theme="dark"] .btn-secondary {
+    background-color: rgba(240, 245, 249, 0.03);
+    border-color: rgba(1, 132, 251, 0.3);
+    color: #ffffff;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background-color: rgba(1, 132, 251, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+[data-theme="dark"] .timeline-bar {
+    background-color: rgba(240, 245, 249, 0.08);
+}
+
+[data-theme="dark"] .pix-copy-box {
+    background-color: rgba(240, 245, 249, 0.02);
+    border-color: rgba(201, 214, 223, 0.08);
+}
+
+[data-theme="dark"] .value-btn {
+    background-color: rgba(240, 245, 249, 0.02);
+    border-color: rgba(201, 214, 223, 0.08);
+    color: #ffffff;
+}
+
+[data-theme="dark"] .value-btn:hover, [data-theme="dark"] .value-btn.active {
+    background: var(--grad-primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(1, 132, 251, 0.3);
+}
+
+[data-theme="dark"] .input-custom-value input {
+    background-color: rgba(240, 245, 249, 0.02);
+    border-color: rgba(201, 214, 223, 0.08);
+    color: var(--black);
+}
+
+[data-theme="dark"] .doacoes-calculator {
+    background-color: rgba(240, 245, 249, 0.02);
+    border-color: rgba(240, 245, 249, 0.05);
+}
+
+[data-theme="dark"] .modal-content {
+    background: rgba(30, 32, 34, 0.98);
+    border: 1px solid rgba(240, 245, 249, 0.1);
+}
+
+[data-theme="dark"] .modal-option-card {
+    background-color: rgba(240, 245, 249, 0.02);
+    border-color: rgba(1, 132, 251, 0.15);
+}
+
+[data-theme="dark"] .modal-option-card:hover {
+    background-color: rgba(1, 132, 251, 0.08);
+    border-color: var(--primary);
+}
+
+/* Estilização do Botão de Alternância (Theme Toggle) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(1, 132, 251, 0.15);
+    color: var(--black);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    transform: rotate(15deg) scale(1.05);
+    box-shadow: 0 4px 15px rgba(1, 132, 251, 0.2);
+}
+
+.theme-toggle svg {
+    transition: transform 0.5s ease;
+}
+
+.theme-toggle:hover svg {
+    transform: scale(1.1);
+}
+
+[data-theme="dark"] .theme-toggle {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
    RESET & CONFIGURAÇÕES BÁSICAS
    ========================================================================== */
 
@@ -1352,8 +1579,8 @@ ul {
    ========================================================================== */
 
 .main-footer {
-    background-color: var(--black);
-    color: rgba(255, 255, 255, 0.6);
+    background-color: #0b0f19; /* Fundo preto fixo */
+    color: rgba(255, 255, 255, 0.6); /* Texto cinza claro fixo */
     padding: 80px 0 30px;
     position: relative;
     z-index: 10;
@@ -1367,7 +1594,7 @@ ul {
 }
 
 .footer-brand .logo h1 {
-    background: linear-gradient(135deg, var(--white) 30%, var(--accent) 100%);
+    background: linear-gradient(135deg, #ffffff 30%, var(--accent) 100%); /* Fundo branco/celeste fixo */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -1378,7 +1605,7 @@ ul {
 }
 
 .footer-grid h4 {
-    color: var(--white);
+    color: #ffffff; /* Título h4 sempre branco */
     font-size: 16px;
     margin-bottom: 20px;
     font-weight: 600;
@@ -1413,7 +1640,7 @@ ul {
     height: 36px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.05);
-    color: var(--white);
+    color: #ffffff; /* Ícones sempre brancos */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1692,7 +1919,11 @@ ul {
     }
     
     .header-actions {
-        display: none;
+        /* Mantém visível para o botão do tema */
+    }
+    
+    .btn-member {
+        display: none; /* Esconde apenas o botão de membro no mobile */
     }
     
     .mobile-menu-btn {

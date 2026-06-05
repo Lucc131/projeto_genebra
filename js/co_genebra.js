@@ -5,6 +5,49 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     /* ==========================================================================
+       0. SISTEMA DE MODO ESCURO / CLARO
+       ========================================================================== */
+    const themeToggle = document.getElementById('themeToggle');
+    const iconSun = document.querySelector('.icon-sun');
+    const iconMoon = document.querySelector('.icon-moon');
+    
+    // Recuperar preferência salva ou usar o modo claro por padrão ao entrar
+    const savedTheme = localStorage.getItem('theme');
+    const initialTheme = savedTheme ? savedTheme : 'light';
+    
+    // Função para aplicar o tema
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            if (iconSun && iconMoon) {
+                iconSun.classList.add('hidden');
+                iconMoon.classList.remove('hidden');
+            }
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+            if (iconSun && iconMoon) {
+                iconSun.classList.remove('hidden');
+                iconMoon.classList.add('hidden');
+            }
+        }
+    };
+    
+    // Aplicar tema inicial no carregamento
+    applyTheme(initialTheme);
+    
+    // Adicionar escutador de evento no botão
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+    }
+
+    
+    /* ==========================================================================
        1. EFEITO SCROLL-FADE - IMAGEM DE FUNDO DO HERO (TOPO)
        ========================================================================== */
     const heroBg = document.getElementById('heroBg');
