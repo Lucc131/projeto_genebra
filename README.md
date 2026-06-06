@@ -94,6 +94,4 @@ Este projeto é disponibilizado para fins educacionais, de aprendizado e desenvo
 
 ## Autor
 
-Lucas Henrique
-
-Projeto desenvolvido como parte do Projeto Genebra.
+Projeto desenvolvido como parte do Igreja Genebra.
