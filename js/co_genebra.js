@@ -3,18 +3,18 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     /* ==========================================================================
        0. SISTEMA DE MODO ESCURO / CLARO
        ========================================================================== */
     const themeToggle = document.getElementById('themeToggle');
     const iconSun = document.querySelector('.icon-sun');
     const iconMoon = document.querySelector('.icon-moon');
-    
+
     // Recuperar preferência salva ou usar o modo claro por padrão ao entrar
     const savedTheme = localStorage.getItem('theme');
     const initialTheme = savedTheme ? savedTheme : 'light';
-    
+
     // Função para aplicar o tema
     const applyTheme = (theme) => {
         if (theme === 'dark') {
@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
-    
+
     // Aplicar tema inicial no carregamento
     applyTheme(initialTheme);
-    
+
     // Adicionar escutador de evento no botão
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
@@ -46,20 +46,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
+
     /* ==========================================================================
        1. EFEITO SCROLL-FADE - IMAGEM DE FUNDO DO HERO (TOPO)
        ========================================================================== */
     const heroBg = document.getElementById('heroBg');
-    
+
     window.addEventListener('scroll', () => {
         const scrollPos = window.scrollY;
         const windowHeight = window.innerHeight;
-        
+
         // A opacidade diminui gradativamente de 1 para 0
         // Chega a 0 ligeiramente antes de rolar toda a tela do Hero (80% da altura da janela)
         const opacity = Math.max(0, 1 - (scrollPos / (windowHeight * 0.8)));
-        
+
         if (heroBg) {
             heroBg.style.opacity = opacity;
         }
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
        2. CABEÇALHO - ESTILO AO ROLAR (STICKY GLASS EFFECT)
        ========================================================================== */
     const header = document.querySelector('.main-header');
-    
+
     const handleHeaderScroll = () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             header.classList.remove('scrolled');
         }
     };
-    
+
     window.addEventListener('scroll', handleHeaderScroll);
     handleHeaderScroll(); // Executar uma vez no carregamento para caso já esteja com scroll
 
@@ -87,13 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-menu a');
-    
+
     if (mobileMenuBtn && navMenu) {
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenuBtn.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
-        
+
         // Fechar o menu ao clicar em qualquer link
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
        4. ANIMAÇÕES AO ROLAR A PÁGINA (INTERSECTION OBSERVER)
        ========================================================================== */
     const revealElements = document.querySelectorAll('.scroll-reveal');
-    
+
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.12, // Elemento precisa estar 12% visível na tela
         rootMargin: "0px 0px -40px 0px"
     });
-    
+
     revealElements.forEach(el => revealObserver.observe(el));
 
     /* ==========================================================================
@@ -131,29 +131,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const cellModal = document.getElementById('cellModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const modalOptionCards = document.querySelectorAll('.modal-option-card');
-    
+
     const openModal = () => {
         if (cellModal) {
             cellModal.classList.add('active');
             document.body.style.overflow = 'hidden'; // Impede o scroll de fundo
         }
     };
-    
+
     const closeModal = () => {
         if (cellModal) {
             cellModal.classList.remove('active');
             document.body.style.overflow = 'auto'; // Restaura o scroll
         }
     };
-    
+
     if (findCellBtn) {
         findCellBtn.addEventListener('click', openModal);
     }
-    
+
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', closeModal);
     }
-    
+
     // Fechar ao clicar fora do modal
     window.addEventListener('click', (e) => {
         if (e.target === cellModal) {
@@ -170,93 +170,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ==========================================================================
-       6. SIMULADOR DO REPRODUTOR DE MENSAGENS (INTERATIVO)
-       ========================================================================== */
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const videoThumbnail = document.getElementById('videoThumbnail');
-    const playerVisualizer = document.getElementById('playerVisualizer');
-    const audioWaves = document.getElementById('audioWaves');
-    const timelineBar = document.getElementById('timelineBar');
-    const timelineProgress = document.getElementById('timelineProgress');
-    const timeElapsed = document.getElementById('timeElapsed');
-    
-    let isPlaying = false;
-    let progressInterval;
-    let currentProgress = 0;
-    let totalSeconds = 0;
-    
-    const formatTime = (secs) => {
-        const mins = Math.floor(secs / 60);
-        const remainingSecs = secs % 60;
-        return `${mins}:${remainingSecs < 10 ? '0' : ''}${remainingSecs}`;
-    };
-    
-    if (playPauseBtn && videoThumbnail && playerVisualizer && audioWaves) {
-        
-        const updatePlayerUI = () => {
-            const iconPlay = playPauseBtn.querySelector('.icon-play');
-            const iconPause = playPauseBtn.querySelector('.icon-pause');
-            
-            if (isPlaying) {
-                videoThumbnail.classList.add('hidden');
-                playerVisualizer.classList.add('active');
-                audioWaves.classList.add('playing');
-                iconPlay.classList.add('hidden');
-                iconPause.classList.remove('hidden');
-            } else {
-                audioWaves.classList.remove('playing');
-                iconPlay.classList.remove('hidden');
-                iconPause.classList.add('hidden');
-            }
-        };
+    const carousel = document.getElementById("verseCarousel");
+    const track = carousel.querySelector(".verse-track");
+    const slides = [...carousel.querySelectorAll(".verse-slide")];
 
-        playPauseBtn.addEventListener('click', () => {
-            isPlaying = !isPlaying;
-            updatePlayerUI();
-            
-            if (isPlaying) {
-                progressInterval = setInterval(() => {
-                    currentProgress += 0.29; // Proporção para aproximar de 34:12 (2052 segundos)
-                    totalSeconds++;
-                    
-                    if (currentProgress >= 100) {
-                        currentProgress = 100;
-                        isPlaying = false;
-                        clearInterval(progressInterval);
-                        updatePlayerUI();
-                    }
-                    
-                    timelineProgress.style.width = `${currentProgress}%`;
-                    timeElapsed.textContent = formatTime(totalSeconds);
-                }, 1000);
-            } else {
-                clearInterval(progressInterval);
-            }
-        });
+    let current = 0;
+    let startX = 0;
+    let endX = 0;
 
-        // Interação ao clicar na barra de progresso (Fictício)
-        timelineBar.addEventListener('click', (e) => {
-            const barWidth = timelineBar.offsetWidth;
-            const clickX = e.offsetX;
-            const percentage = (clickX / barWidth) * 100;
-            
-            currentProgress = percentage;
-            timelineProgress.style.width = `${percentage}%`;
-            
-            // Total estimado da mensagem em segundos: 2052 (34:12)
-            totalSeconds = Math.floor((percentage / 100) * 2052);
-            timeElapsed.textContent = formatTime(totalSeconds);
-            
-            if (!isPlaying) {
-                isPlaying = true;
-                updatePlayerUI();
-                // Reinicia o loop se necessário
-                playPauseBtn.click();
-                playPauseBtn.click();
-            }
-        });
+    function updateCarousel() {
+        track.style.transform = `translateX(-${current * 100}%)`;
+
+        slides.forEach(slide =>
+            slide.classList.remove("active")
+        );
+
+        slides[current].classList.add("active");
+
+        carousel.style.background =
+            slides[current].dataset.bg;
     }
+
+    function nextSlide() {
+        current = (current + 1) % slides.length;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        current =
+            (current - 1 + slides.length) % slides.length;
+
+        updateCarousel();
+    }
+
+    /* Swipe Mobile */
+
+    carousel.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener("touchend", e => {
+        endX = e.changedTouches[0].clientX;
+
+        const distance = startX - endX;
+
+        if (distance > 50) nextSlide();
+        if (distance < -50) prevSlide();
+    });
+
+    /* Auto play opcional */
+
+    setInterval(nextSlide, 7000);
+
+    updateCarousel();
 
     /* ==========================================================================
        7. DOAÇÕES - CALCULADORA DE DOAÇÕES & COPIAR CHAVE PIX
@@ -264,18 +230,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyPixBtn = document.getElementById('copyPixBtn');
     const pixKeyText = document.getElementById('pixKey').textContent;
     const copyToast = document.getElementById('copyToast');
-    
+
     // Copiar chave Pix
     if (copyPixBtn && copyToast) {
         copyPixBtn.addEventListener('click', () => {
             navigator.clipboard.writeText(pixKeyText).then(() => {
                 // Ativar o toast de sucesso
                 copyToast.classList.add('active');
-                
+
                 // Mudar texto do botão temporariamente
                 const copyBtnText = copyPixBtn.querySelector('.copy-text');
                 copyBtnText.textContent = 'Copiado!';
-                
+
                 // Resetar após 3 segundos
                 setTimeout(() => {
                     copyToast.classList.remove('active');
@@ -291,15 +257,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const valueButtons = document.querySelectorAll('.value-btn');
     const customValueInput = document.getElementById('customValue');
     const donateBtn = document.getElementById('donateBtn');
-    
+
     valueButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             // Remover ativo de todos
             valueButtons.forEach(b => b.classList.remove('active'));
-            
+
             // Adicionar ao clicado
             btn.classList.add('active');
-            
+
             // Limpar campo de valor customizado
             if (customValueInput) {
                 customValueInput.value = '';
@@ -321,13 +287,13 @@ document.addEventListener('DOMContentLoaded', () => {
         donateBtn.addEventListener('click', () => {
             let finalValue = 0;
             const activeBtn = document.querySelector('.value-btn.active');
-            
+
             if (activeBtn) {
                 finalValue = activeBtn.dataset.value;
             } else if (customValueInput && customValueInput.value) {
                 finalValue = customValueInput.value;
             }
-            
+
             if (finalValue > 0) {
                 alert(`Obrigado pela sua intenção de doar R$ ${finalValue}! Use a chave Pix acima (copiando-a) no aplicativo do seu banco para consolidar sua oferta.`);
             } else {
