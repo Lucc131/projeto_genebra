@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CO.Genebra - Casa de Oração</title>
+    <title>COGenebra - Casa de Oração</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
         <div class="header-container">
             <a href="#" class="logo">
                 <span class="logo-dot"></span>
-                <h1>CO.Genebra</h1>
+                <h1>COGenebra</h1>
             </a>
             <nav class="nav-menu">
                 <ul>
@@ -93,10 +93,9 @@
                                 <div class="avatar">CO</div>
                                 <div>
                                     <h4>Casa de Oração Genebra</h4>
-                                    <p>Próximo Culto: Domingo, 19:00</p>
+                                    <p>Próximo Culto: Domingo, 9:00</p>
                                 </div>
                             </div>
-                            <span class="status-pill active-glow">Ao Vivo</span>
                         </div>
                         <div class="widget-stats">
                             <div class="stat-card">
@@ -169,23 +168,50 @@
 
                     <!-- Bloco Visual CSS 3D à Direita -->
                     <div class="pilar-visual-container">
-                        <div class="orb-network">
-                            <div class="orb-center">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2L12 22" stroke="var(--accent)" stroke-width="2"
-                                        stroke-linecap="round" />
-                                    <path d="M4 12L20 12" stroke="var(--accent)" stroke-width="2"
-                                        stroke-linecap="round" />
-                                    <circle cx="12" cy="12" r="4" fill="var(--primary)" stroke="var(--accent)"
-                                        stroke-width="2" />
-                                </svg>
+                        <div class="earth-globe">
+                            <div class="earth-surface">
+                                <!-- Mapa 1 -->
+                                <div class="earth-map">
+                                    <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse class="lat-line" cx="110" cy="110" rx="95" ry="30" />
+                                        <ellipse class="lat-line" cx="110" cy="60" rx="70" ry="16" />
+                                        <ellipse class="lat-line" cx="110" cy="160" rx="70" ry="16" />
+                                        <!-- "América" - poligonal -->
+                                        <path class="continent" d="M22,52 L30,45 L58,48 L56,66 L66,78 L58,92 L64,108
+                                  L54,148 L62,158 L48,166 L38,152
+                                 L42,134 L38,122 L5,88 L5,60  Z" />
+                                        <!-- "África / Europa" - poligonal -->
+                                        <path class="continent" d="M121,38 L134,34 L140,48 L136,58 L152,62 L156,78
+                                  L162,98 L156,118 L142,126 L148,142 L130,158
+                                 L118,152 L114,134 L104,122 L110,104 L104,84 L83,66 L118,38 Z" />
+                                        <!-- "Ásia / Oceania" - poligonal -->
+                                        <path class="continent" d="M164,68 L182,62 L196,74 L188,88 L206,94 L198,110
+                                 L186,110 L196,124 L178,130 L170,120 L158,124 L
+                                 L150,94 L164,68 Z" />
+                                        <path class="continent" d="M174,148 L186,146 L194,158 L200,166
+                                 L190,176 L176,180 L170,170 L162,164 L168,156 L174,148 Z" />
+                                    </svg>
+                                </div>
+                                <!-- Mapa 2 (cópia, para o loop ficar contínuo) -->
+                                <div class="earth-map">
+                                    <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse class="lat-line" cx="110" cy="110" rx="95" ry="30" />
+                                        <ellipse class="lat-line" cx="110" cy="60" rx="70" ry="16" />
+                                        <ellipse class="lat-line" cx="110" cy="160" rx="70" ry="16" />
+                                        <path class="continent" d="M22,52 L30,45 L58,48 L56,66 L66,78 L58,92 L64,108
+                                  L54,148 L62,158 L48,166 L38,152
+                                 L42,134 L38,122 L5,88 L5,60  Z" />
+                                        <path class="continent" d="M121,38 L134,34 L140,48 L136,58 L152,62 L156,78
+                                  L162,98 L156,118 L142,126 L148,142 L130,158
+                                 L118,152 L114,134 L104,122 L110,104 L104,84 L83,66 L118,38 Z" />
+                                        <path class="continent" d="M164,68 L182,62 L196,74 L188,88 L206,94 L198,110
+                                 L186,110 L196,124 L178,130 L170,120 L158,124 L
+                                 L150,94 L164,68 Z" />
+                                        <path class="continent" d="M174,148 L186,146 L194,158 L200,166
+                                 L190,176 L176,180 L170,170 L162,164 L168,156 L174,148 Z" />
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="orb-orbit orbit-1"></div>
-                            <div class="orb-orbit orbit-2"></div>
-                            <div class="orb-satellite sat-1"></div>
-                            <div class="orb-satellite sat-2"></div>
-                            <div class="orb-satellite sat-3"></div>
                         </div>
                     </div>
                 </div>
@@ -203,7 +229,7 @@
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                             </svg>
                         </div>
-                        <h5>Células nos Lares</h5>
+                        <h5>Células</h5>
                         <p>Grupos semanais de comunhão, acolhimento e estudo prático da Palavra de Deus.</p>
                     </div>
 
@@ -278,14 +304,7 @@
                     <!-- Item 7: Jovens -->
                     <div class="pilar-card glass-card">
                         <div class="pilar-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                                <path d="M6 1v3" />
-                                <path d="M10 1v3" />
-                                <path d="M14 1v3" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6c89fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sprout-icon lucide-sprout"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3"/><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4"/><path d="M5 21h14"/></svg>
                         </div>
                         <h5>Geração Futura</h5>
                         <p>Ministérios específicos focados em crianças, adolescentes e jovens de forma relevante.</p>
@@ -312,7 +331,7 @@
                 <!-- Coluna Imagem (Com Placeholder) -->
                 <div class="image-column">
                     <div class="image-placeholder-container">
-                        <!-- Espaço para imagem reservado -->
+                        <!-- Espaço para imagem reservado 
                         <div class="image-placeholder mock-image-missoes">
                             <div class="placeholder-overlay">
                                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -323,7 +342,8 @@
                                 </svg>
                                 <span>Espaço Reservado: Missões</span>
                             </div>
-                        </div>
+                        </div>-->
+                        <img src="../imgs/missao.jpeg" alt="" class="missao-imagem">
                         <!-- Badge flutuante Glassmorphic -->
                         <div class="floating-badge-glass glass-card animate-float">
                             <div class="badge-icon-bg">
@@ -575,7 +595,7 @@
     <!-- Toast de Feedback -->
     <div class="toast" id="copyToast">Chave Pix copiada com sucesso!</div>
 
-    
+
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container footer-grid">
@@ -630,7 +650,7 @@
             </div>
         </div>
         <div class="container footer-bottom">
-            <p>&copy; 2026 CO.Genebra. Todos os direitos reservados. Feito com amor.</p>
+            <p>&copy; 2026 CO.Genebra. Todos os direitos reservados.</p>
         </div>
     </footer>
 
