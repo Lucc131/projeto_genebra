@@ -162,67 +162,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Simulação ao clicar em um card de opção de célula no modal
-    modalOptionCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const cellType = card.querySelector('h5').textContent;
-            alert(`Você escolheu: ${cellType}. Entraremos em contato via e-mail para conectar você ao líder deste grupo!`);
-            closeModal();
-        });
-    });
+    
 
     const carousel = document.getElementById("verseCarousel");
-    const track = carousel.querySelector(".verse-track");
-    const slides = [...carousel.querySelectorAll(".verse-slide")];
+    if (carousel) {
+        const track = carousel.querySelector(".verse-track");
+        const slides = [...carousel.querySelectorAll(".verse-slide")];
 
-    let current = 0;
-    let startX = 0;
-    let endX = 0;
+        let current = 0;
+        let startX = 0;
+        let endX = 0;
 
-    function updateCarousel() {
-        track.style.transform = `translateX(-${current * 100}%)`;
+        function updateCarousel() {
+            track.style.transform = `translateX(-${current * 100}%)`;
 
-        slides.forEach(slide =>
-            slide.classList.remove("active")
-        );
+            slides.forEach(slide =>
+                slide.classList.remove("active")
+            );
 
-        slides[current].classList.add("active");
+            slides[current].classList.add("active");
 
-        carousel.style.background =
-            slides[current].dataset.bg;
-    }
+            carousel.style.background =
+                slides[current].dataset.bg;
+        }
 
-    function nextSlide() {
-        current = (current + 1) % slides.length;
+        function nextSlide() {
+            current = (current + 1) % slides.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            current =
+                (current - 1 + slides.length) % slides.length;
+
+            updateCarousel();
+        }
+
+        /* Swipe Mobile */
+
+        carousel.addEventListener("touchstart", e => {
+            startX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener("touchend", e => {
+            endX = e.changedTouches[0].clientX;
+
+            const distance = startX - endX;
+
+            if (distance > 50) nextSlide();
+            if (distance < -50) prevSlide();
+        });
+
+        /* Auto play opcional */
+
+        setInterval(nextSlide, 7000);
+
         updateCarousel();
     }
-
-    function prevSlide() {
-        current =
-            (current - 1 + slides.length) % slides.length;
-
-        updateCarousel();
-    }
-
-    /* Swipe Mobile */
-
-    carousel.addEventListener("touchstart", e => {
-        startX = e.touches[0].clientX;
-    });
-
-    carousel.addEventListener("touchend", e => {
-        endX = e.changedTouches[0].clientX;
-
-        const distance = startX - endX;
-
-        if (distance > 50) nextSlide();
-        if (distance < -50) prevSlide();
-    });
-
-    /* Auto play opcional */
-
-    setInterval(nextSlide, 7000);
-
-    updateCarousel();
 
     /* ==========================================================================
        7. DOAÇÕES - CALCULADORA DE DOAÇÕES & COPIAR CHAVE PIX
@@ -299,6 +295,28 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 alert('Por favor, selecione ou insira um valor para realizar a contribuição.');
             }
+        });
+    }
+
+    /* ==========================================================================
+       8. BOTÃO VOLTAR AO TOPO (BACK TO TOP)
+       ========================================================================== */
+    const backToTopBtn = document.getElementById('backToTop');
+
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 });

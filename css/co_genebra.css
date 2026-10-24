@@ -13,9 +13,9 @@
     /* Ciano claro brilhante (Celeste) */
     --green: #00fb08;
     /* Verde limão (status ativo) */
-    --black: #0b0f19;
+    --text-main: #0b0f19;
     /* Preto azulado profundo para textos e alto contraste */
-    --white: #ffffff;
+    --bg-main: #ffffff;
 
     /* Tons Neutros de Apoio */
     --bg-dark-rgb: 11, 15, 25;
@@ -46,6 +46,7 @@
     
     --primary_earth: #0184fb;
     --green_earth: #1fbf5c;
+    --poles_earth: #ffffff;
 }
 
 /* ==========================================================================
@@ -54,9 +55,9 @@
 
 [data-theme="dark"] {
     /* Cores de Teste (Slate / Charcoal) */
-    --black: #F0F5F9;
+    --text-main: #F0F5F9;
     /* Texto principal claro */
-    --white: #000000;
+    --bg-main: #000000;
     /* Fundo escuro principal (Charcoal) */
     --bg-dark-rgb: 240, 245, 249;
     --bg-light: #52616B;
@@ -232,7 +233,7 @@ svg {
 [data-theme="dark"] .input-custom-value input {
     background-color: rgba(240, 245, 249, 0.02);
     border-color: rgba(201, 214, 223, 0.08);
-    color: var(--black);
+    color: var(--text-main);
 }
 
 [data-theme="dark"] .doacoes-calculator {
@@ -272,7 +273,7 @@ svg {
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(1, 132, 251, 0.15);
-    color: var(--black);
+    color: var(--text-main);
     cursor: pointer;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -280,7 +281,7 @@ svg {
 
 .theme-toggle:hover {
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--bg-main);
     transform: rotate(15deg) scale(1.05);
     box-shadow: 0 4px 15px rgba(1, 132, 251, 0.2);
 }
@@ -315,7 +316,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--white);
+    background-color: var(--bg-main);
     color: var(--text-muted);
     line-height: 1.6;
     overflow-x: hidden;
@@ -329,7 +330,7 @@ h4,
 h5,
 h6 {
     font-family: var(--font-heading);
-    color: var(--black);
+    color: var(--text-main);
     font-weight: 700;
 }
 
@@ -453,7 +454,7 @@ video {
     font-size: 22px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    background: linear-gradient(135deg, var(--black) 30%, var(--primary) 100%);
+    background: linear-gradient(135deg, var(--text-main) 30%, var(--primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -480,8 +481,8 @@ video {
     border-radius: var(--radius-sm);
     font-size: 14px;
     font-weight: 600;
-    color: var(--white);
-    background-color: var(--black);
+    color: var(--bg-main);
+    background-color: var(--text-main);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
@@ -505,7 +506,7 @@ video {
     display: block;
     width: 100%;
     height: 2px;
-    background-color: var(--black);
+    background-color: var(--text-main);
     transition: var(--transition);
 }
 
@@ -525,8 +526,8 @@ video {
 }
 
 .btn-primary {
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--text-main);
+    color: var(--bg-main);
     box-shadow: 0 4px 20px rgba(11, 15, 25, 0.15);
 }
 
@@ -538,14 +539,14 @@ video {
 
 .btn-secondary {
     background-color: rgba(255, 255, 255, 0.6);
-    color: var(--black);
+    color: var(--text-main);
     border: 1px solid rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-    background-color: var(--white);
+    background-color: var(--bg-main);
     border-color: var(--primary);
     color: var(--primary);
     transform: translateY(-3px);
@@ -576,7 +577,7 @@ video {
     letter-spacing: -1px;
     text-align: center;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--black) 50%, var(--primary) 100%);
+    background: linear-gradient(135deg, var(--text-main) 50%, var(--primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -586,7 +587,7 @@ video {
     font-weight: 800;
     letter-spacing: -0.8px;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--black) 60%, var(--primary) 100%);
+    background: linear-gradient(135deg, var(--text-main) 60%, var(--primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -734,11 +735,11 @@ video {
     gap: 8px;
     padding: 8px 16px;
     border-radius: 50px;
-    background-color: var(--white);
+    background-color: var(--bg-main);
     border: 1px solid rgba(1, 132, 251, 0.15);
     font-size: 13px;
     font-weight: 600;
-    color: var(--black);
+    color: var(--text-main);
     box-shadow: var(--shadow-sm);
     margin-bottom: 24px;
 }
@@ -778,7 +779,7 @@ video {
     line-height: 1.15;
     letter-spacing: -1.8px;
     margin-bottom: 20px;
-    color: var(--black);
+    color: var(--text-main);
 }
 
 .highlight-text {
@@ -845,7 +846,7 @@ video {
     height: 42px;
     border-radius: 12px;
     background: var(--grad-primary);
-    color: var(--white);
+    color: var(--bg-main);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -872,7 +873,7 @@ video {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    background-color: var(--white);
+    background-color: var(--bg-main);
     color: var(--primary);
     border: 1px solid rgba(1, 132, 251, 0.2);
     display: flex;
@@ -929,7 +930,7 @@ video {
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--black);
+    color: var(--text-main);
 }
 
 .schedule-item {
@@ -969,7 +970,7 @@ video {
     padding: 100px 0;
     position: relative;
     z-index: 2;
-    background-color: var(--white);
+    background-color: var(--bg-main);
 }
 
 .pilares-main {
@@ -1005,6 +1006,23 @@ video {
     color: var(--text-muted);
 }
 
+.identidade-igreja hr {
+    margin: 10px 0 10px 0;
+    opacity: 10%;
+}
+
+.identidade-igreja ul {
+    padding-left: 25px;
+}
+
+.identidade-igreja li {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+
+
+
 /* Visual CSS 3D */
 .pilar-visual-container {
     display: flex;
@@ -1016,8 +1034,8 @@ video {
 /* Globo: o círculo externo fica fixo, representando o contorno do planeta */
 .earth-globe {
     position: relative;
-    width: 220px;
-    height: 220px;
+    width: 420px;
+    height: 420px;
     border-radius: 50%;
     overflow: hidden;
     background: radial-gradient(circle at 35% 30%, rgba(1, 132, 251, 0.12), rgba(1, 132, 251, 0.02) 70%);
@@ -1040,8 +1058,8 @@ video {
 
 /* Duplicamos o mapa lado a lado para criar um loop de rotação contínuo */
 .earth-map {
-    width: 220px;
-    height: 220px;
+    width: 420px;
+    height: 420px;
     flex-shrink: 0;
 }
 
@@ -1052,12 +1070,17 @@ video {
 }
 
 .continent {
-    fill: none;
+    fill: #31c5362a;
     stroke: var(--green_earth);
     stroke-width: 1.6;
     stroke-linejoin: miter;
     stroke-linecap: square;
     opacity: 0.9;
+}
+
+.pole {
+    fill: #ffffff;
+    stroke: var(--poles_earth);
 }
 
 .lat-line {
@@ -1072,7 +1095,7 @@ video {
     }
 
     to {
-        transform: translateX(-220px);
+        transform: translateX(-420px);
     }
 }
 
@@ -1111,7 +1134,7 @@ video {
 
 .pilar-card:hover .pilar-icon {
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--bg-main);
     transform: scale(1.05);
 }
 
@@ -1133,7 +1156,7 @@ video {
 .split-section {
     padding: 100px 0;
     position: relative;
-    background-color: var(--white);
+    background-color: var(--bg-main);
 }
 
 .split-grid {
@@ -1212,7 +1235,7 @@ video {
     margin-bottom: 12px;
     font-size: 15px;
     font-weight: 500;
-    color: var(--black);
+    color: var(--text-main);
 }
 
 .check-list li svg {
@@ -1379,7 +1402,7 @@ video {
 
 .doacoes-section {
     padding: 100px 0;
-    background-color: var(--white);
+    background-color: var(--bg-main);
 }
 
 .doacoes-card {
@@ -1425,17 +1448,17 @@ video {
     gap: 8px;
     padding: 6px 12px;
     border-radius: var(--radius-sm);
-    background-color: var(--white);
+    background-color: var(--bg-main);
     border: 1px solid rgba(1, 132, 251, 0.2);
     font-size: 12px;
     font-weight: 600;
-    color: var(--black);
+    color: var(--text-main);
     transition: var(--transition);
 }
 
 .btn-copy:hover {
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--bg-main);
     border-color: var(--primary);
 }
 
@@ -1462,18 +1485,18 @@ video {
 .value-btn {
     padding: 12px 0;
     border-radius: var(--radius-md);
-    background-color: var(--white);
+    background-color: var(--bg-main);
     border: 1px solid rgba(1, 132, 251, 0.1);
     font-weight: 600;
     font-size: 13px;
-    color: var(--black);
+    color: var(--text-main);
     transition: var(--transition);
 }
 
 .value-btn:hover,
 .value-btn.active {
     background: var(--grad-primary);
-    color: var(--white);
+    color: var(--bg-main);
     border-color: var(--primary);
     box-shadow: 0 4px 15px rgba(1, 132, 251, 0.2);
 }
@@ -1489,7 +1512,7 @@ video {
     top: 50%;
     transform: translateY(-50%);
     font-weight: 700;
-    color: var(--black);
+    color: var(--text-main);
 }
 
 .input-custom-value input {
@@ -1500,7 +1523,7 @@ video {
     font-family: inherit;
     font-size: 15px;
     font-weight: 600;
-    color: var(--black);
+    color: var(--text-main);
     outline: none;
     transition: var(--transition);
 }
@@ -1552,6 +1575,13 @@ video {
     font-size: 14px;
 }
 
+.footer-brand img {
+    margin-top: 16px;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+
 .footer-grid h4 {
     color: #ffffff;
     /* Título h4 sempre branco */
@@ -1599,7 +1629,7 @@ video {
 
 .social-icons a:hover {
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--bg-main);
     transform: translateY(-3px);
 }
 
@@ -1658,7 +1688,7 @@ video {
     top: 20px;
     right: 20px;
     font-size: 28px;
-    color: var(--black);
+    color: var(--text-main);
     opacity: 0.5;
     transition: var(--transition);
 }
@@ -1696,7 +1726,7 @@ video {
 
 .modal-option-card:hover {
     border-color: var(--primary);
-    background-color: var(--white);
+    background-color: var(--bg-main);
     box-shadow: var(--shadow-sm);
     transform: translateY(-2px);
 }
@@ -1731,8 +1761,8 @@ video {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--text-main);
+    color: var(--bg-main);
     padding: 14px 24px;
     border-radius: var(--radius-md);
     font-size: 14px;
@@ -1845,7 +1875,7 @@ video {
     .theme-toggle {
         width: 38px;
         height: 38px;
-        margin-left: 0;
+        margin-left: 200px;
         flex-shrink: 0;
     }
 
@@ -1858,7 +1888,7 @@ video {
         height: 100vh;
         height: 100dvh;
         overflow-y: auto;
-        background-color: var(--white);
+        background-color: var(--bg-main);
         box-shadow: -10px 0 30px #0b0f190d;
         padding: 100px 30px;
         transition: var(--transition);
@@ -1999,4 +2029,58 @@ video {
         gap: 12px;
         text-align: center;
     }
+}
+
+/* ==========================================================================
+   BOTÃO VOLTAR AO TOPO
+   ========================================================================== */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(1, 132, 251, 0.2);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+    transform: translateY(15px);
+}
+
+.back-to-top.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--primary);
+    color: var(--bg-main);
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(1, 132, 251, 0.35);
+}
+
+[data-theme="dark"] .back-to-top {
+    background-color: rgba(30, 32, 34, 0.75);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .back-to-top:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
 }
